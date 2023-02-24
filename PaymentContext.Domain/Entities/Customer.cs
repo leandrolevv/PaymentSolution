@@ -1,11 +1,14 @@
-﻿namespace PaymentContext.Domain.Entities
+﻿using PaymentContext.Domain.ValueObjects;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace PaymentContext.Domain.Entities
 {
     public class Customer
     {
         private IList<Subscription> _subscriptions;
-        public Customer(string name, string document, string email)
+        public Customer(Name name, Document document, Email email)
         {
-            if (name.Length == 0)
+            if (name.PrincipalName.Length == 0)
             {
                 throw new Exception("Nome inválido");
             }
@@ -16,9 +19,9 @@
             _subscriptions = new List<Subscription>();
         }
 
-        public string Name { get; private set; }
-        public string Email { get; private set; }
-        public string Document { get; private set; }
+        public Name Name { get; private set; }
+        public Email Email { get; private set; }
+        public Document Document { get; private set; }
         public string Address { get; private set; }
 
         public IReadOnlyCollection<Subscription> Subscriptions

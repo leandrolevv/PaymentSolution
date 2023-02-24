@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PaymentContext.Domain.ValueObjects;
 
 namespace PaymentContext.Domain.Entities
 {
@@ -17,7 +18,7 @@ namespace PaymentContext.Domain.Entities
         public string Payer { get; private set; }
         public string Address { get; private set; }
 
-        public Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string document, string payer, string address)
+        public Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, Document document, string payer, string address)
         {
             Number = Guid.NewGuid().ToString().Replace("-", "").Substring(0,10).ToUpper();
             PaidDate = paidDate;
