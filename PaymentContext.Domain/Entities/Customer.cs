@@ -1,9 +1,9 @@
 ﻿using PaymentContext.Domain.ValueObjects;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using PaymentContext.Shared.Entities;
 
 namespace PaymentContext.Domain.Entities
 {
-    public class Customer
+    public class Customer : Entity
     {
         private IList<Subscription> _subscriptions;
         public Customer(Name name, Document document, Email email)

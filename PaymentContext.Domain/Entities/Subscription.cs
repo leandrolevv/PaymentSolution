@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PaymentContext.Shared.Entities;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PaymentContext.Domain.Entities
 {
-    public class Subscription
+    public class Subscription : Entity
     {
         private IList<Payment> _payments = new List<Payment>();
         public DateTime CreateDate { get; private set; }
